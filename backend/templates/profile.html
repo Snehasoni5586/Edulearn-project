@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Profile - EduLearn</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .profile-box {
+            background-color: white;
+            width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        p {
+            font-size: 17px;
+            margin: 15px 0;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Profile</h1>
+    <p>EduLearn Student Profile</p>
+</header>
+
+<div class="profile-box">
+
+    <h2>Student Information</h2>
+
+    <p><b>Name:</b> {{ student["name"] }}</p>
+    <p><b>Email:</b> {{ student["email"] }}</p>
+    <p><b>Courses:</b> 3</p>
+    <p><b>Quiz Score:</b> {{ student["quiz_score"] }} / 5</p>
+
+    <br>
+
+    <a href="/dashboard">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>

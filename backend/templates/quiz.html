@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EduLearn Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .quiz-box {
+            background-color: white;
+            width: 80%;
+            max-width: 700px;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #16a34a;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>EduLearn Quiz</h1>
+    <p>Test Your Knowledge</p>
+</header>
+
+<div class="quiz-box">
+
+    <div class="question">
+        <h2>1. Python is a ______?</h2>
+
+        <label>
+            <input type="radio" name="q1" value="correct">
+            Programming Language
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="wrong">
+            Operating System
+        </label>
+
+        <label>
+            <input type="radio" name="q1" value="wrong">
+            Browser
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h2>2. HTML is used for?</h2>
+
+        <label>
+            <input type="radio" name="q2" value="correct">
+            Creating webpage structure
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="wrong">
+            Storing data only
+        </label>
+
+        <label>
+            <input type="radio" name="q2" value="wrong">
+            Creating databases
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h2>3. CSS is used for?</h2>
+
+        <label>
+            <input type="radio" name="q3" value="correct">
+            Styling webpages
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="wrong">
+            Storing files
+        </label>
+
+        <label>
+            <input type="radio" name="q3" value="wrong">
+            Creating hardware
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h2>4. Which tool is used for Data Visualization?</h2>
+
+        <label>
+            <input type="radio" name="q4" value="correct">
+            Power BI
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="wrong">
+            Notepad
+        </label>
+
+        <label>
+            <input type="radio" name="q4" value="wrong">
+            Calculator
+        </label>
+    </div>
+
+
+    <div class="question">
+        <h2>5. Which language is commonly used for Data Analytics?</h2>
+
+        <label>
+            <input type="radio" name="q5" value="correct">
+            Python
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="wrong">
+            HTML
+        </label>
+
+        <label>
+            <input type="radio" name="q5" value="wrong">
+            CSS
+        </label>
+    </div>
+
+
+    <button onclick="checkQuiz()">Submit Quiz</button>
+
+    <div id="result"></div>
+    <a href="/progress">View My Progress</a>
+    <a href="/">← Back to Home</a>
+
+</div>
+<script>
+function checkQuiz() {
+
+    let score = 0;
+
+    let answers = ["q1", "q2", "q3", "q4", "q5"];
+
+    answers.forEach(function(question) {
+
+        let selected = document.querySelector(
+            'input[name="' + question + '"]:checked'
+        );
+
+        if (selected && selected.value === "correct") {
+            score++;
+        }
+    });
+
+    document.getElementById("result").innerHTML =
+        "Your Score: " + score + " / 5";
+    let form = document.createElement("form");
+    form.method = "POST";
+    form.action = "/quiz";
+
+    let input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "score";
+    input.value = score;
+
+    form.appendChild(input);
+    document.body.appendChild(form);
+    form.submit();    
+
+    fetch("/save-score", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            score: score
+        })
+    });
+}
+</script>
+
+</body>
+</html>

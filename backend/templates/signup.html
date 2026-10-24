@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h2>EduLearn</h2>
+</header>
+
+<section class="form-section">
+
+    <h2>Create Student Account</h2>
+
+    <form method="POST" action="http://127.0.0.1:5000/signup">
+
+        <input type="text" name="name" placeholder="Enter Your Name" required>
+
+        <input type="email" name="email" placeholder="Enter Your Email" required>
+
+        <input type="password" name="password" placeholder="Create Password" required>
+
+        <button type="submit">Sign Up</button>
+
+    </form>
+
+    <p>Already have an account?</p>
+
+    <a href="login.html">Login</a>
+
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>

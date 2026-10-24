@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduLearn - Educational Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h2>EduLearn</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Sign Up</a> 
+        <a href="/dashboard">Dashboard</a>
+        <a href="/admin/dashboard">Admin</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h1>Learn Today, Build Your Future</h1>
+    <p>Welcome to EduLearn – Learn programming and technology easily.</p>
+
+    <button onclick="goToSignup()">Start Learning</button>
+</section>
+
+<section id="courses">
+    <h2>Our Courses</h2>
+
+    <div class="courses">
+
+        <div class="course">
+            <h3>Python</h3>
+            <p>Learn Python programming from basic to advanced.</p>
+            <button onclick="openCourse('python.html')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course">
+            <h3>Web Development</h3>
+            <p>Learn HTML, CSS and JavaScript.</p>
+            <button onclick="openCourse('web.html')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course">
+            <h3>Data Analytics</h3>
+            <p>Learn data analysis and visualization.</p>
+            <button onclick="openCourse('data-analytics.html')">
+                Learn More
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 EduLearn. All Rights Reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

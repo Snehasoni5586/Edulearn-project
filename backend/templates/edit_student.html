@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student - EduLearn</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+            text-align: center;
+            color: #0878d1;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0878d1;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005fa3;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Edit Student</h1>
+
+    <form method="POST">
+
+        <label>Name:</label>
+        <input type="text" name="name" value="{{ student.name }}" required>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="{{ student.email }}" required>
+
+        <label>Password:</label>
+        <input type="text" name="password" value="{{ student.password }}" required>
+
+        <label>Quiz Score:</label>
+        <input type="number" name="quiz_score" value="{{ student.quiz_score }}" min="0" required>
+
+        <button type="submit">Update Student</button>
+
+    </form>
+
+    <a class="back" href="/admin/students">← Back to Students</a>
+
+</div>
+
+</body>
+</html>

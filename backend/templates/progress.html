@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Progress - EduLearn</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fb;
+            margin: 0;
+        }
+
+        header {
+            background-color: #2563eb;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .progress-box {
+            background-color: white;
+            width: 80%;
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2563eb;
+        }
+
+        .course {
+            margin: 25px 0;
+        }
+
+        .bar {
+            background-color: #e5e7eb;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .fill {
+            background-color: #2563eb;
+            height: 100%;
+        }
+
+        .score {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Learning Progress</h1>
+    <p>Track your EduLearn journey</p>
+</header>
+
+<div class="progress-box">
+
+    <div class="course">
+        <h2>Python</h2>
+
+        <p>{{ student["python_progress"] }}% Completed</p>
+
+        <div class="bar">
+            <div class="fill"
+                 style="width: {{ student['python_progress'] }}%;">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="course">
+        <h2>Web Development</h2>
+
+        <p>{{ student["web_progress"] }}% Completed</p>
+
+        <div class="bar">
+            <div class="fill"
+                 style="width: {{ student['web_progress'] }}%;">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="course">
+        <h2>Data Analytics</h2>
+
+        <p>{{ student["data_progress"] }}% Completed</p>
+
+        <div class="bar">
+            <div class="fill"
+                 style="width: {{ student['data_progress'] }}%;">
+            </div>
+        </div>
+    </div>
+
+
+    <hr>
+
+    <h2>Quiz Score</h2>
+
+    <p class="score">
+        {% if student %}
+            {{ student["quiz_score"] }} / 5
+        {% else %}
+            0 / 5
+        {% endif %}
+    </p>
+
+    <br>
+
+    <a href="/dashboard">← Back to Dashboard</a>
+
+</div>
+
+</body>
+</html>
